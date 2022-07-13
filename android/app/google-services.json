@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1073350661400",
+    "firebase_url": "https://esports-tournament-app-de5e8-default-rtdb.firebaseio.com",
+    "project_id": "esports-tournament-app-de5e8",
+    "storage_bucket": "esports-tournament-app-de5e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073350661400:android:a34c2ac18b5a3491c3fa6d",
+        "android_client_info": {
+          "package_name": "com.eta_demo.eta_esports_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073350661400-80pfu9639j6drse1flj4t2fpe4dhiu6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVRmgeYZb2kGY0LDhxGpzh_8zc3GZS618"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073350661400-80pfu9639j6drse1flj4t2fpe4dhiu6c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1073350661400-12p7o770l0dpsu2h7g7k53flcfejm73e.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.etacfa.etaEsportsAdmin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
