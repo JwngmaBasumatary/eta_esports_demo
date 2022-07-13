@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   bool downloading = false;
   bool? appInstalled;
   bool recheckAppInstalled = false;
+  // bool fetchingPackage = true;
 
   @override
   void initState() {
@@ -50,25 +51,42 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   void checkAppInstalled() async {
     debugPrint("Checking App Installed.......");
-    bool isInstalled = await DeviceApps.isAppInstalled('com.cfaeta.eta_esports');
+    setState(() {
+      recheckAppInstalled = false;
+      appInstalled = null;
+    });
+    var appPackageName = await FirestoreServices().getAppPackageName();
 
-    if (isInstalled) {
-      debugPrint("App Installed");
-      DeviceApps.openApp('com.cfaeta.eta_esports');
-      setState(() {
-        recheckAppInstalled = true;
-      });
-    } else {
-      debugPrint("App Not Installed");
+    // setState(() {
+    //   fetchingPackage = false;
+    // });
 
-      setState(() {
-        appInstalled = isInstalled;
-      });
+    if (appPackageName != null) {
+      bool isInstalled = await DeviceApps.isAppInstalled(appPackageName);
+
+      if (isInstalled) {
+        debugPrint("App Installed");
+        DeviceApps.openApp(appPackageName);
+        setState(() {
+          recheckAppInstalled = true;
+          appInstalled = null;
+        });
+      } else {
+        debugPrint("App Not Installed");
+
+        // setState(() {
+        //   recheckAppInstalled = false;
+        //   appInstalled = null;
+        // });
+
+        setState(() {
+          appInstalled = isInstalled;
+        });
+      }
     }
   }
 
   void downloadApp(BuildContext context) async {
-
     ProgressDialog progressDialog = ProgressDialog(
       context: context,
       backgroundColor: Colors.blue,
