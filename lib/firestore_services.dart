@@ -8,6 +8,11 @@ class FirestoreServices {
         .collection("Apk_Link")
         .doc("latest_apk_link")
         .get()
-        .then((documentSnapshot) => documentSnapshot.get('link'));
+        .then((documentSnapshot) => documentSnapshot.get('latestAppLink'));
+  }
+
+  Future getAppPackageName() async {
+    return await _db.collection("Apk_Link").doc("latest_apk_link").get().then(
+        (documentSnapshot) => documentSnapshot.get('latestAppPackageName'));
   }
 }
